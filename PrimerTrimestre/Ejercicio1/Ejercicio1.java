@@ -17,13 +17,15 @@ public class Ejercicio1 {
   // you cannot read this file
   public static void main(String[] args) {
     String path = "Users/JuanPrograma/OneDrive/Desktop/AccesoDeDatos/PrimerTrimestre/Ejercicio1";
+
+    // una clase por cada contenido visto en clase
+    // mirar classroom
+    EjemploFile ejemploFile = new EjemploFile();
+    ejemploFile.File(path);
+    EjemploFileOutputStream ejemploFileOutputStream = new EjemploFileOutputStream();
     LeerArchivo leerArchivo = new LeerArchivo();
-    leerArchivo.LeerArchivo(path);
+    FileOutPutStream fileOutPutStream = new FileOutPutStream();
+    EjemploFileWriter ejemploFileWriter = new EjemploFileWriter();
 
-    QuitarPermisos quitarPermisos = new QuitarPermisos();
-    quitarPermisos.QuitaPermisos(path);
-
-    EliminarArchivos eliminarArchivos = new EliminarArchivos();
-    eliminarArchivos.EliminarArhivo(path);
   }
 }
