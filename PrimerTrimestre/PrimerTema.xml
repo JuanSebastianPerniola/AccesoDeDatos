@@ -56,5 +56,14 @@
 
         Cambiar los permisos de un xml desde la clase?
     </Tema1>
-
+        <AclaracionEjercicio1>
+            Agarrar ficheros, tenemos que leerlo, hay que escribirlo, y despues cambiarle los permisos de lectura, volver a llamarla 
+            pero habiendole cambiado los permisos para que pete.
+            Segun el fichero que sea hay que usar una manera de u otra binario o ""
+            If binary(){}
+            else{}
+            Como saber si es binario? por la extension 
+            Coger una imagen copiarla e intentar abrirla 
+            FileOutPutSteam = stream = TRATAMIENTO de datos secuenciales, binarios tambien
+        </AclaracionEjercicio1>
 </Clase>

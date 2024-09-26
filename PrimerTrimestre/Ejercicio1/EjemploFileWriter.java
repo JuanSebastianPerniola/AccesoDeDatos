@@ -1,18 +1,19 @@
 package PrimerTrimestre.Ejercicio1;
 
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class EjemploFileWriter {
-    public static void main(String[] args) {
-        String data = "Texto de ejemplo";
+    void WriteFile(FileInputStream path) {
 
-        try (FileWriter fw = new FileWriter("salida.txt")) {
-            // Escribir texto al archivo
-            fw.write(data);
+        String escrituraFile = "Hola mundo i guess";
+        try {
+            FileWriter fileWriter = new FileWriter(escrituraFile);  
             System.out.println("Datos escritos al archivo");
+            fileWriter.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Algo a ido mal ");  
         }
     }
 }
