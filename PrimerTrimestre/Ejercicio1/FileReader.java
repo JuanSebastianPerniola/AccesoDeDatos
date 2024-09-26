@@ -1,21 +1,22 @@
 package PrimerTrimestre.Ejercicio1;
 
-import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 
 public class FileReader {
-    public void File(FileInputStream file1) {
+    public void readFile(FileInputStream readTxt) {
         try {
-            File archivo = new File("ejemplo.txt");
-            // Verificar si el archivo existe
-            if (archivo.exists()) {
-                System.out.println("El archivo existe");
-            } else {
-                System.out.println("El archivo no existe");
+            int content;
+            System.out.println("Contenido del archivo:");
+
+            // Leer el archivo byte por byte y convertirlo en caracteres
+            while ((content = readTxt.read()) != -1) {
+                System.out.print((char) content);
+                readTxt.close();
             }
-            System.out.println("Ruta absoluta: " + archivo.getAbsolutePath());
-        } catch (Exception e) {
-            System.out.println("Algo a ido mal " + e);
+            //crear un archico nuevo con el mismo contenido
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
 }
