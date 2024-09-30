@@ -3,7 +3,7 @@ package PrimerTrimestre.Ejercicio1;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class FileOutPutStream {
+public class x7045416qFileOutPutStream {
     public static void main(String[] args) {
         String data = "Texto de ejemplo";
 
@@ -16,4 +16,4 @@ public class FileOutPutStream {
         }
     }
 }
-
+// 

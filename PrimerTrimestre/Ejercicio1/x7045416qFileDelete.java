@@ -2,7 +2,7 @@ package PrimerTrimestre.Ejercicio1;
 
 import java.io.File;
 
-public class FileDelete {
+public class x7045416qFileDelete {
   public static boolean EliminarArhivo(String path) {
     // Clase de eliminar archivo
 
