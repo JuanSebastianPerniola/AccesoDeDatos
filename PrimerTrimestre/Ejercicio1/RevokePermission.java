@@ -14,7 +14,6 @@ public class RevokePermission {
     //i have "think" in this way
     // de other way it would be like this 
     public boolean checkReaded;
-
     public void revokePermission(String filePath) {
         try {
             Path path = Paths.get(filePath);
