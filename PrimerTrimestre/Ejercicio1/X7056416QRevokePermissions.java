@@ -2,7 +2,7 @@ package PrimerTrimestre.Ejercicio1;
 
 import java.io.File;
 
-public class x7045416qRevokePermission {
+public class X7056416QRevokePermissions {
     public boolean checkReaded;
     public void revokePermission(File filePath) {
         try {

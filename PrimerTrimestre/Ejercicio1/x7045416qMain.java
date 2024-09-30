@@ -1,57 +1,124 @@
 package PrimerTrimestre.Ejercicio1;
 
 import java.io.*;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class x7045416qMain {
+
     public static void main(String[] args) {
+        x7045416qMain mainApp = new x7045416qMain();
+        mainApp.loadProperties();
+        mainApp.processFiles();
+    }
+
+    private void loadProperties() {
+        Properties properties = new Properties();
         try {
-            // Crear objeto File con la ruta del archivo
-            File readTxt = new File(
-                    "C:/Users/JuanPrograma/OneDrive/Desktop/AccesoDeDatos/PrimerTrimestre/Ejercicio1/Archivo1.txt");
-            File readJPG = new File(
-                    "C:/Users/JuanPrograma/OneDrive/Desktop/AccesoDeDatos/PrimerTrimestre/Ejercicio1/ejemplosPNG.jpg");
+            FileInputStream input = new FileInputStream("config.properties");
+            properties.load(input);
+        } catch (IOException e) {
+            System.out.println("Error al cargar el archivo de propiedades: " + e);
+        }
+    }
 
-            // Instanciar FileInputStream correctamente
-            FileInputStream readJPGbinary = new FileInputStream(readJPG);
-            Scanner lectorDeTextoPorConsola = new Scanner(System.in);
-            //enchufar lo que me da resultado el sout para abrir el jpg
-            // Obtener la extensión del archivo jpg
-            String extension = readJPG.getName().substring(readJPG.getName().lastIndexOf(".") + 1);
+    public void processFiles() {
+        File readTxt = new File("C:/Users/JuanPrograma/OneDrive/Desktop/AccesoDeDatos/PrimerTrimestre/Ejercicio1/Archivo1.txt");
+        File readJPG = new File("C:/Users/JuanPrograma/OneDrive/Desktop/AccesoDeDatos/PrimerTrimestre/Ejercicio1/ejemplosPNG.jpg");
+        Scanner lectorDeTextoPorConsola = new Scanner(System.in);
 
-            // Verificar si el archivo es una imagen JPG
-            if (extension.equalsIgnoreCase("jpg")) {
-                try {
-                    x7045416qFileReaderBinary fileReaderBinary = new x7045416qFileReaderBinary();
-                    fileReaderBinary.FileReaderBinary(readJPGbinary);
-                } catch (Exception e) {
-                    System.out.println("Something went wrong: " + e);
-                }
-            } else if (extension.equalsIgnoreCase("txt")) {
-                // Leer archivos de texto
-                try {
-                    x7045416qFileReader fileReader = new x7045416qFileReader();
-                    fileReader.FileReader(readTxt);
+        // Leer el archivo JPG o TXT según la extensión
+        String extension = getFileExtension(readJPG);
+        if (extension.equalsIgnoreCase("jpg")) {
+            leerArchivoBytes(readJPG);
+        } else if (extension.equalsIgnoreCase("txt")) {
+            leerArchivo(readTxt);
+            RevokePermissions(readTxt);
+            LeerOtraVezArchivoSinPermisos(readTxt);
+        } else {
+            System.out.println("El archivo de texto no le han sido revocados los permisos");
+        }
+    }
 
-                } catch (Exception e) {
-                    System.out.println("Algo ha salido mal : " + e);
-                }
-                x7045416qRevokePermission revokePermission = new x7045416qRevokePermission();
-                revokePermission.revokePermission(readTxt);
-                try {
-                    lectorDeTextoPorConsola = new Scanner(readTxt); // Reiniciar el escáner
-                    while (lectorDeTextoPorConsola.hasNextLine()) {
-                        String data = lectorDeTextoPorConsola.nextLine();
-                        System.out.println(data);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Algo ha ido mal: " + e);
-                }
-            } else {
-                System.out.println("El archivo de texto no le han sido revocados los permisos");
+    public String getFileExtension(File file) {
+        return file.getName().substring(file.getName().lastIndexOf(".") + 1);
+    }
+
+    public void leerArchivo(File readTxt) {
+        try {
+            x7045416qFileReader fileReader = new x7045416qFileReader();
+            fileReader.FileReader(readTxt);
+        } catch (Exception e) {
+            System.out.println("Algo ha salido mal: " + e);
+        }
+    }
+
+    public void leerArchivoBytes(File readJPG) {
+        try (FileInputStream readJPGbinary = new FileInputStream(readJPG)) {
+            X7056416QFileReaderBinary fileReaderBinary = new X7056416QFileReaderBinary();
+            fileReaderBinary.FileReaderBinary(readJPGbinary);
+        } catch (Exception e) {
+            System.out.println("Something went wrong: " + e);
+        }
+    }
+
+    public void RevokePermissions(File readTxt){
+        try {
+            X7056416QRevokePermissions revokePermission = new X7056416QRevokePermissions();
+            revokePermission.revokePermission(readTxt);
+        } catch (Exception e) {
+            System.out.println("Error revocando permisos: " + e);
+        }
+    }
+
+    public void LeerOtraVezArchivoSinPermisos(File readTxt) {
+        try (Scanner lectorDeTextoPorConsola = new Scanner(readTxt)) {
+            while (lectorDeTextoPorConsola.hasNextLine()) {
+                String data = lectorDeTextoPorConsola.nextLine();
+                System.out.println(data);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred " + e);
+        } catch (Exception e) {
+            System.out.println("Algo ha ido mal: " + e);
+        }
+    }
+
+    public void CrearArchivo(File readTxt) throws FileNotFoundException{
+        try {
+            X7056416QCreateFile tal = new X7056416QCreateFile(readTxt);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // Métodos vacíos para completar más adelante
+    public void LeerArchivoBytes(FileInputStream inputStream) throws FileNotFoundException{
+        try {
+            X7056416QFileReaderBinary readeerBinary = new X7056416QFileReaderBinary();
+            readeerBinary.FileReaderBinary(inputStream);
+        } catch (Exception e) {
+            System.out.println("Algo ha ido mal: " + e);
+        }
+    }
+
+    public void CambiarArchivosPermisision(File readTxt) throws FileNotFoundException{
+        X7056416QRevokePermissions readeerBinary = new X7056416QRevokePermissions();
+        try {
+            readeerBinary.revokePermission(readTxt);
+        } catch (Exception e) {
+            System.out.println("Algo ha ido mal: " + e);
+        }
+
+    }
+
+    public void LeerArchivoSinPermisos(File readTxt) throws FileNotFoundException {
+        Scanner lectorDeTextoPorConsola = new Scanner(readTxt);
+        try  {
+            while (lectorDeTextoPorConsola.hasNextLine()) {
+                String data = lectorDeTextoPorConsola.nextLine();
+                System.out.println(data);
+            }
+        } catch (Exception e) {
+            System.out.println("Algo ha ido mal: " + e);
         }
     }
 }

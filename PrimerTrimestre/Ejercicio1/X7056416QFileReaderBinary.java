@@ -4,7 +4,7 @@ import java.io.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class x7045416qFileReaderBinary {
+public class X7056416QFileReaderBinary {
     public void FileReaderBinary(FileInputStream path) {
         FileInputStream readJPGbinary = path;
         try  {
