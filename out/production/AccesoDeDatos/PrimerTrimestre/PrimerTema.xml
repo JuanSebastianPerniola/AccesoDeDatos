@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Clase>
+    <Nombre>Acces de Datos</Nombre>
+    <Descripcion>Esta clase cubre los conceptos y técnicas para acceder y manipular datos en
+        diferentes sistemas de gestión de bases de datos.</Descripcion>
+    <Profesor>Juan Programa</Profesor>
+    <Horario>
+        <Dia>Lunes</Dia>
+        <Hora>10:00 - 12:00</Hora>
+    </Horario>
+    <Horario>
+        <Dia>Miercoles</Dia>
+        <Hora>10:00 - 12:00</Hora>
+    </Horario>
+    <Introduccion>
+        <Obejtivos>
+            <Objetivo>Utilizar clase para la gestio</Objetivo>
+            <Objetivo>Ventajas e inconvenientes</Objetivo>
+            <Objetivo>Utilizar clases para la recuperacion de informacion</Objetivo>
+            <Objetivo>Gestio de excepcion (Try{} Catch(){})</Objetivo>
+            <Objetivo></Objetivo>
+        </Obejtivos>
+    </Introduccion>
+    <Tema1> Formas de acceder a un fichero, ajva tiene diferentes maneras de acceder al archivo Se
+        gestionan de dos maneras distinta <Manera1>
+            Ficheros de caracateres extraños
+        </Manera1>
+        <Manera2>
+            Leer una detras de otros los datos de un archivo
+            Ficheros aleatorios, cuando abres un fichero y se lee de manera eficiente no ordenada
+        </Manera2>
+
+        <FlujoDeDatos>
+        Se le dice que tipo de archivo sera (escritura, leer, o otro no se cual)
+            Windows, linux, mac, etc funcionan de una manera especifica / \
+            File instacia la ubicacion del Ficheros
+
+        </FlujoDeDatos>
+
+        <FileWrite>
+        FileWrite("Contenido a escribir en un fichero ")
+
+        </FileWrite>
+
+        <FileRead>
+        Como se lee el archivo
+        </FileRead>
+
+        <FileOutPutSteam>
+            FileOutPutSteam = stream = TRATAMIENTO de datos secuenciales, binarios tambine
+        </FileOutPutSteam>
+
+        <InputStream>
+             Entrada de informacion e ficheros binarios
+        </InputStream>
+
+        Cambiar los permisos de un xml desde la clase?
+    </Tema1>
+        <AclaracionEjercicio1>
+            Agarrar ficheros, tenemos que leerlo, hay que escribirlo, y despues cambiarle los permisos de lectura, volver a llamarla 
+            pero habiendole cambiado los permisos para que pete.
+            Segun el fichero que sea hay que usar una manera de u otra binario o ""
+            If binary(){}
+            else{}
+            Como saber si es binario? por la extension 
+            Coger una imagen copiarla e intentar abrirla 
+            FileOutPutSteam = stream = TRATAMIENTO de datos secuenciales, binarios tambien
+        </AclaracionEjercicio1>
+</Clase>
